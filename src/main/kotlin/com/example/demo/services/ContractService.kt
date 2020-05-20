@@ -1,8 +1,14 @@
 package com.example.demo.services
 
 import com.example.demo.repositories.ContractRepository
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 
-class ContractService(private val contractRepository: ContractRepository) {
+@Service
+class ContractService {
+
+    @Autowired
+    private lateinit var contractRepository: ContractRepository
 
     fun getContract(customerId: String) = contractRepository.getContract(customerId)
 }

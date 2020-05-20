@@ -1,18 +1,19 @@
 package com.example.demo.repositories
 
 import com.example.demo.models.Contract
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.RowMapper
-import java.sql.ResultSet
+import org.springframework.stereotype.Repository
 
-class ContractRepository(private val repository: Repository) {
-
+@Repository
+class ContractRepository(@Autowired private val repository: BaseRepository) {
     fun getContract(customerId: String): Contract {
         return repository.queryForObject(
-                RowMapper { rs: ResultSet, _: Int ->
+                RowMapper { r, _: Int ->
                     Contract(
-                            rs.getString("id"),
-                            rs.getString("customer_id"),
-                            rs.getString("details")
+                            r.getString("id"),
+                            r.getString("customer_id"),
+                            r.getString("details")
                     )
                 },
                 "SELECT id, customer_id, details FROM contract WHERE customer_id = ?", customerId

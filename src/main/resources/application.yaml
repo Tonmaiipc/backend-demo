@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: Demo
+  datasource:
+    host: localhost:3306
+    dbname: demo_db
+    username: username
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver

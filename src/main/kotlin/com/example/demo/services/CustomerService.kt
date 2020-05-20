@@ -2,8 +2,14 @@ package com.example.demo.services
 
 import com.example.demo.models.Customer
 import com.example.demo.repositories.CustomerRepository
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Service
 
-class CustomerService(private val customerRepository: CustomerRepository) {
+@Service
+class CustomerService {
+
+    @Autowired
+    private lateinit var customerRepository: CustomerRepository
 
     fun getCustomer(id: String): Customer = customerRepository.getCustomer(id)
 }

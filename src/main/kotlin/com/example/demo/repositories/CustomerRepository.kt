@@ -1,9 +1,12 @@
 package com.example.demo.repositories
 
 import com.example.demo.models.Customer
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.jdbc.core.RowMapper
+import org.springframework.stereotype.Repository
 
-class CustomerRepository(private val repository: Repository) {
+@Repository
+class CustomerRepository(@Autowired private val repository: BaseRepository) {
     fun getCustomer(id: String): Customer {
         return repository.queryForObject(
                 RowMapper { r, _ ->
