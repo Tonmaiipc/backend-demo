@@ -4,10 +4,10 @@ import com.example.demo.models.Contract
 import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet
 
-class ContractRepository(url: String, username: String, password: String) : Repository(url, username, password) {
+class ContractRepository(private val repository: Repository) {
 
     fun getContract(customerId: String): Contract {
-        return queryForObject(
+        return repository.queryForObject(
                 RowMapper { rs: ResultSet, _: Int ->
                     Contract(
                             rs.getString("id"),

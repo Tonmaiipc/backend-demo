@@ -19,7 +19,7 @@ open class Repository(url: String, username: String, password: String) {
 
 
 
-    protected fun <T> queryForObject(entityBuilder: RowMapper<T>, query: String, vararg parameters: String): T {
+    internal fun <T> queryForObject(entityBuilder: RowMapper<T>, query: String, vararg parameters: String): T {
         val results = jdbcTemplate.query<T>(query, entityBuilder, *parameters)
         return if (results.isNotEmpty()) {
             results.first()

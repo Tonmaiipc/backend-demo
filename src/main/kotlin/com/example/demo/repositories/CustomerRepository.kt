@@ -3,9 +3,9 @@ package com.example.demo.repositories
 import com.example.demo.models.Customer
 import org.springframework.jdbc.core.RowMapper
 
-class CustomerRepository(url: String, username: String, password: String) : Repository(url, username, password) {
+class CustomerRepository(private val repository: Repository) {
     fun getCustomer(id: String): Customer {
-        return queryForObject(
+        return repository.queryForObject(
                 RowMapper { r, _ ->
                     Customer(
                             r.getString("id"),
