@@ -7,16 +7,16 @@ import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
 import java.sql.ResultSet
 
-class Repository {
+class Repository(url: String, username: String, password: String) {
 
     private val jdbcTemplate: JdbcTemplate = JdbcTemplate()
 
     init {
         jdbcTemplate.dataSource = DataSourceBuilder.create()
                 .driverClassName("mysql")
-                .url("url")
-                .username("username")
-                .password("password")
+                .url(url)
+                .username(username)
+                .password(password)
                 .build()
     }
 
