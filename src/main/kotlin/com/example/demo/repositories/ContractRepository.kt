@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class ContractRepository(@Autowired private val repository: BaseRepository) {
-    fun getContract(customerId: String): Contract {
+    fun getByCustomerId(customerId: String): Contract {
         return repository.queryForObject(
                 RowMapper { r, _: Int ->
                     Contract(

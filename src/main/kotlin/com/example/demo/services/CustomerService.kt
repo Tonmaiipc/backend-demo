@@ -11,5 +11,5 @@ class CustomerService {
     @Autowired
     private lateinit var customerRepository: CustomerRepository
 
-    fun getCustomer(id: String): Customer = customerRepository.getCustomer(id)
+    fun get(id: String): Customer = customerRepository.get(id)
 }

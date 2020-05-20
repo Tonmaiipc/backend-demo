@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class CustomerRepository(@Autowired private val repository: BaseRepository) {
-    fun getCustomer(id: String): Customer {
+    fun get(id: String): Customer {
         return repository.queryForObject(
                 RowMapper { r, _ ->
                     Customer(

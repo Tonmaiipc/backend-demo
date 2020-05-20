@@ -10,5 +10,5 @@ class ContractService {
     @Autowired
     private lateinit var contractRepository: ContractRepository
 
-    fun getContract(customerId: String) = contractRepository.getContract(customerId)
+    fun getByCustomerId(customerId: String) = contractRepository.getByCustomerId(customerId)
 }
