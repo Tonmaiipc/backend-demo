@@ -1,10 +1,8 @@
 package com.example.demo.repositories
 
-import com.example.demo.models.Contract
 import org.springframework.boot.jdbc.DataSourceBuilder
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
-import java.sql.ResultSet
 
 open class Repository(url: String, username: String, password: String) {
 
