@@ -1,5 +1,7 @@
 package com.example.demo
 
+import com.example.demo.models.Contract
+import com.example.demo.models.Customer
 import org.springframework.boot.jdbc.DataSourceBuilder
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.RowMapper
