@@ -9,22 +9,27 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DemoApplication
+class DemoApplication {
 
-fun instantiates() {
+    final val customerRepository: CustomerRepository
+    final val contractRepository: ContractRepository
+    final val customerService: CustomerService
+    final val contractService: ContractService
 
-    val envVars = System.getenv()
-    val repository = Repository(
-            envVars["DB_URLS"]!!,
-            envVars["DB_USERNAME"]!!,
-            envVars["DB_PASSWORD"]!!
-    )
+    init {
+        val envVars = System.getenv()
+        val repository = Repository(
+                envVars["DB_URLS"]!!,
+                envVars["DB_USERNAME"]!!,
+                envVars["DB_PASSWORD"]!!
+        )
 
-    val customerRepository = CustomerRepository(repository)
-    val contractRepository = ContractRepository(repository)
+        customerRepository = CustomerRepository(repository)
+        contractRepository = ContractRepository(repository)
 
-    val customerService = CustomerService(customerRepository)
-    val contractService = ContractService(contractRepository)
+        customerService = CustomerService(customerRepository)
+        contractService = ContractService(contractRepository)
+    }
 }
 
 fun main(args: Array<String>) {
