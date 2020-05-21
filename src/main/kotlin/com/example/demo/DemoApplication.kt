@@ -11,10 +11,10 @@ import org.springframework.boot.runApplication
 @SpringBootApplication
 class DemoApplication {
 
-    final val customerRepository: CustomerRepository
-    final val contractRepository: ContractRepository
-    final val customerService: CustomerService
-    final val contractService: ContractService
+    private final val customerRepository: CustomerRepository
+    private final val contractRepository: ContractRepository
+    private final val customerService: CustomerService
+    private final val contractService: ContractService
 
     init {
         val envVars = System.getenv()
